@@ -1,0 +1,129 @@
+[
+  {
+    "providerConfigKey": "segment",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches all source configurations from Segment workspace",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/sources",
+            "group": "Sources"
+          }
+        ],
+        "input": "SyncMetadata_segment_sources",
+        "name": "sources",
+        "output": [
+          "SegmentSource"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "workspace:read"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "SegmentSource",
+          "SyncMetadata_segment_sources"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all destination configurations from Segment workspace",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/destinations",
+            "group": "Destinations"
+          }
+        ],
+        "input": "SyncMetadata_segment_destinations",
+        "name": "destinations",
+        "output": [
+          "SegmentDestination"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "workspace:read"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "SegmentDestination",
+          "SyncMetadata_segment_destinations"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all subscriptions from enabled destinations in Segment workspace",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/subscriptions",
+            "group": "Subscriptions"
+          }
+        ],
+        "input": "SyncMetadata_segment_subscriptions",
+        "name": "subscriptions",
+        "output": [
+          "SegmentSubscription"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "workspace:read"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "SegmentSubscription",
+          "SyncMetadata_segment_subscriptions"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches workspace information from Segment",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/workspace",
+            "group": "Workspace"
+          }
+        ],
+        "input": "SyncMetadata_segment_workspace",
+        "name": "workspace",
+        "output": [
+          "SegmentWorkspace"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "workspace:read"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "SegmentWorkspace",
+          "SyncMetadata_segment_workspace"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": [],
+      "validate-connection": []
+    }
+  }
+]

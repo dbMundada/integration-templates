@@ -1,0 +1,253 @@
+{
+  "SyncMetadata_segment_sources": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  },
+  "SegmentSource": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "slug": {
+        "type": "string"
+      },
+      "enabled": {
+        "type": "boolean"
+      },
+      "sourceId": {
+        "type": "string"
+      },
+      "workspaceId": {
+        "type": "string"
+      },
+      "metadata": {
+        "$ref": "#/SegmentMetadata"
+      },
+      "settings": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "createdAt": {
+        "type": "string"
+      },
+      "updatedAt": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "slug",
+      "enabled",
+      "sourceId",
+      "workspaceId",
+      "metadata",
+      "createdAt",
+      "updatedAt"
+    ]
+  },
+  "SyncMetadata_segment_destinations": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  },
+  "SegmentDestination": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "enabled": {
+        "type": "boolean"
+      },
+      "connectionMode": {
+        "type": "string"
+      },
+      "destinationDefinitionId": {
+        "type": "string"
+      },
+      "sourceId": {
+        "type": "string"
+      },
+      "workspaceId": {
+        "type": "string"
+      },
+      "metadata": {
+        "$ref": "#/SegmentMetadata"
+      },
+      "settings": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "createdAt": {
+        "type": "string"
+      },
+      "updatedAt": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "enabled",
+      "destinationDefinitionId",
+      "sourceId",
+      "workspaceId",
+      "metadata",
+      "createdAt",
+      "updatedAt"
+    ]
+  },
+  "SyncMetadata_segment_subscriptions": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  },
+  "SegmentSubscription": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "actionId": {
+        "type": "string"
+      },
+      "actionSlug": {
+        "type": "string"
+      },
+      "destinationId": {
+        "type": "string"
+      },
+      "enabled": {
+        "type": "boolean"
+      },
+      "trigger": {
+        "type": "string"
+      },
+      "settings": {
+        "$ref": "#/SegmentSubscriptionSettings"
+      },
+      "createdAt": {
+        "type": "string"
+      },
+      "updatedAt": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "actionId",
+      "destinationId",
+      "enabled",
+      "trigger",
+      "createdAt",
+      "updatedAt"
+    ]
+  },
+  "SyncMetadata_segment_workspace": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  },
+  "SegmentWorkspace": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "slug": {
+        "type": "string"
+      },
+      "createdAt": {
+        "type": "string"
+      },
+      "updatedAt": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "slug",
+      "createdAt",
+      "updatedAt"
+    ]
+  },
+  "SegmentMetadata": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "slug": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "website": {
+        "type": "string"
+      },
+      "categories": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "options": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "required": [
+      "id",
+      "name"
+    ]
+  },
+  "SegmentSubscriptionSettings": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "subscriptionId": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string"
+      },
+      "trigger": {
+        "type": "string"
+      },
+      "actions": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "fields": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    }
+  }
+}
