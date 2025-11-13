@@ -13,19 +13,17 @@ export interface SegmentSource {
   enabled: boolean;
   sourceId: string;
   workspaceId: string;
-  metadata: {
-    id: string;
-    name: string;
-    slug?: string | undefined;
-    description?: string | undefined;
-    website?: string | undefined;
-    categories?: string[] | undefined;
-    options?: Record<string, any> | undefined;
-  };
-  settings?: Record<string, any> | undefined;
+  metadata: {  id: string;
+  name: string;
+  slug?: string | undefined;
+  description?: string | undefined;
+  website?: string | undefined;
+  categories?: string[] | undefined;
+  options?: {  [key: string]: any | undefined;};};
+  settings?: {  [key: string]: any | undefined;};
   createdAt: string;
   updatedAt: string;
-}
+};
 
 export interface SyncMetadata_segment_destinations {
 };
@@ -38,19 +36,17 @@ export interface SegmentDestination {
   destinationDefinitionId: string;
   sourceId: string;
   workspaceId: string;
-  metadata: {
-    id: string;
-    name: string;
-    slug?: string | undefined;
-    description?: string | undefined;
-    website?: string | undefined;
-    categories?: string[] | undefined;
-    options?: Record<string, any> | undefined;
-  };
-  settings?: Record<string, any> | undefined;
+  metadata: {  id: string;
+  name: string;
+  slug?: string | undefined;
+  description?: string | undefined;
+  website?: string | undefined;
+  categories?: string[] | undefined;
+  options?: {  [key: string]: any | undefined;};};
+  settings?: {  [key: string]: any | undefined;};
   createdAt: string;
   updatedAt: string;
-}
+};
 
 export interface SyncMetadata_segment_subscriptions {
 };
@@ -63,16 +59,14 @@ export interface SegmentSubscription {
   destinationId: string;
   enabled: boolean;
   trigger: string;
-  settings?: {
-    subscriptionId?: string | undefined;
-    type?: string | undefined;
-    trigger?: string | undefined;
-    actions?: Record<string, any> | undefined;
-    fields?: Record<string, any> | undefined;
-  } | undefined;
+  settings?: {  subscriptionId?: string | undefined;
+  type?: string | undefined;
+  trigger?: string | undefined;
+  actions?: {  [key: string]: any | undefined;};
+  fields?: {  [key: string]: any | undefined;};};
   createdAt: string;
   updatedAt: string;
-}
+};
 
 export interface SyncMetadata_segment_workspace {
 };
@@ -83,4 +77,4 @@ export interface SegmentWorkspace {
   slug: string;
   createdAt: string;
   updatedAt: string;
-}
+};

@@ -19,7 +19,7 @@
         "output": [
           "SegmentSource"
         ],
-        "runs": "every hour",
+        "runs": "every day",
         "scopes": [
           "workspace:read"
         ],
@@ -77,7 +77,7 @@
         "output": [
           "SegmentSubscription"
         ],
-        "runs": "every hour",
+        "runs": "every day",
         "scopes": [
           "workspace:read"
         ],
