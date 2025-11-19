@@ -1,14 +1,4 @@
 // -- Integration: hubspot
-import './hubspot/syncs/service-tickets.js';
-import './hubspot/syncs/contacts.js';
-import './hubspot/syncs/companies.js';
-import './hubspot/syncs/deals.js';
-import './hubspot/syncs/products.js';
-import './hubspot/syncs/owners.js';
-import './hubspot/syncs/users.js';
-import './hubspot/syncs/knowledge-base.js';
-import './hubspot/syncs/tasks.js';
-import './hubspot/syncs/currency-codes.js';
 import './hubspot/actions/whoami.js';
 import './hubspot/actions/fetch-properties.js';
 import './hubspot/actions/create-property.js';
@@ -32,3 +22,11 @@ import './hubspot/actions/create-task.js';
 import './hubspot/actions/update-task.js';
 import './hubspot/actions/delete-task.js';
 import './hubspot/actions/create-note.js';
+import './hubspot/actions/fetch-companies.js';
+import './hubspot/actions/fetch-contacts.js';
+import './hubspot/actions/fetch-currency-codes.js';
+import './hubspot/actions/fetch-deals.js';
+import './hubspot/actions/fetch-knowledge-base.js';
+import './hubspot/actions/fetch-owners.js';
+import './hubspot/actions/fetch-products.js';
+import './hubspot/actions/fetch-service-tickets.js';

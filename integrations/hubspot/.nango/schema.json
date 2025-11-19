@@ -1,785 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "SyncMetadata_hubspot_servicetickets": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "HubspotServiceTicket": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "updatedAt": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "isArchived": {
-          "type": "boolean"
-        },
-        "subject": {
-          "type": "string"
-        },
-        "content": {
-          "type": "string"
-        },
-        "objectId": {
-          "type": "number"
-        },
-        "ownerId": {
-          "type": "number"
-        },
-        "pipeline": {
-          "type": "number"
-        },
-        "pipelineStage": {
-          "type": "number"
-        },
-        "ticketCategory": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "ticketPriority": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "createdAt",
-        "updatedAt",
-        "isArchived",
-        "subject",
-        "content",
-        "objectId",
-        "ownerId",
-        "pipeline",
-        "pipelineStage",
-        "ticketCategory",
-        "ticketPriority"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_hubspot_contacts": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "Contact": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "created_date": {
-          "type": "string"
-        },
-        "first_name": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "last_name": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "email": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "job_title": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "last_contacted": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "last_activity_date": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "lead_status": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "lifecycle_stage": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "salutation": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "mobile_phone_number": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "website_url": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "owner": {
-          "type": [
-            "string",
-            "null"
-          ]
-        }
-      },
-      "required": [
-        "id",
-        "created_date",
-        "first_name",
-        "last_name",
-        "email",
-        "job_title",
-        "last_contacted",
-        "last_activity_date",
-        "lead_status",
-        "lifecycle_stage",
-        "salutation",
-        "mobile_phone_number",
-        "website_url",
-        "owner"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_hubspot_companies": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "Company": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "created_date": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "name": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "industry": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "country": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "city": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "lead_status": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "lifecycle_stage": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "owner": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "year_founded": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "website_url": {
-          "type": [
-            "string",
-            "null"
-          ]
-        }
-      },
-      "required": [
-        "id",
-        "created_date",
-        "name",
-        "industry",
-        "description",
-        "country",
-        "city",
-        "lead_status",
-        "lifecycle_stage",
-        "owner",
-        "year_founded",
-        "website_url"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_hubspot_deals": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "Deal": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "amount": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "close_date": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "deal_description": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "owner": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "deal_stage": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "deal_probability": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "returned_associations": {
-          "type": "object",
-          "properties": {
-            "companies": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                },
-                "required": [
-                  "id",
-                  "name"
-                ],
-                "additionalProperties": false
-              }
-            },
-            "contacts": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "first_name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "last_name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                },
-                "required": [
-                  "id",
-                  "first_name",
-                  "last_name"
-                ],
-                "additionalProperties": false
-              }
-            },
-            "deals": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                },
-                "required": [
-                  "id",
-                  "name"
-                ],
-                "additionalProperties": false
-              }
-            }
-          },
-          "additionalProperties": false
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "amount",
-        "close_date",
-        "deal_description",
-        "owner",
-        "deal_stage",
-        "deal_probability"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_hubspot_products": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "Product": {
-      "type": "object",
-      "properties": {
-        "updatedAt": {
-          "type": "string"
-        },
-        "createdAt": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "amount": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "discount": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "sku": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "url": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "name": {
-          "type": "string"
-        },
-        "price": {
-          "type": "string"
-        },
-        "quantity": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "recurringBillingFrequency": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "tax": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
-      },
-      "required": [
-        "updatedAt",
-        "createdAt",
-        "id",
-        "amount",
-        "description",
-        "discount",
-        "sku",
-        "url",
-        "name",
-        "price",
-        "quantity",
-        "recurringBillingFrequency",
-        "tax"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_hubspot_owners": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "HubspotOwner": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "userId": {
-          "type": "number"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "updatedAt": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "archived": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "id",
-        "email",
-        "firstName",
-        "lastName",
-        "userId",
-        "createdAt",
-        "updatedAt",
-        "archived"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_hubspot_users": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "User": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "roleIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "primaryTeamId": {
-          "type": "string"
-        },
-        "superAdmin": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "id",
-        "email",
-        "firstName",
-        "lastName",
-        "roleIds",
-        "superAdmin"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_hubspot_knowledgebase": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "HubspotKnowledgeBase": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "category": {
-          "type": "string"
-        },
-        "content": {
-          "type": "string"
-        },
-        "publishDate": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "id",
-        "title",
-        "description",
-        "category",
-        "content",
-        "publishDate"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_hubspot_tasks": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "Task": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "task_type": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "priority": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "assigned_to": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "due_date": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "notes": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "returned_associations": {
-          "type": "object",
-          "properties": {
-            "companies": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                },
-                "required": [
-                  "id",
-                  "name"
-                ],
-                "additionalProperties": false
-              }
-            },
-            "contacts": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "first_name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "last_name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                },
-                "required": [
-                  "id",
-                  "first_name",
-                  "last_name"
-                ],
-                "additionalProperties": false
-              }
-            },
-            "deals": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                },
-                "required": [
-                  "id",
-                  "name"
-                ],
-                "additionalProperties": false
-              }
-            }
-          },
-          "additionalProperties": false
-        }
-      },
-      "required": [
-        "id",
-        "task_type",
-        "title",
-        "priority",
-        "assigned_to",
-        "due_date",
-        "notes"
-      ],
-      "additionalProperties": false
-    },
-    "SyncMetadata_hubspot_currencycodes": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "CurrencyCode": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "code": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "code",
-        "description"
-      ],
-      "additionalProperties": false
-    },
     "ActionInput_hubspot_whoami": {
       "type": "null"
     },
@@ -2568,7 +1789,776 @@
         "time_stamp"
       ],
       "additionalProperties": false
+    },
+    "ActionInput_hubspot_fetchcompanies": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number"
+        },
+        "properties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_fetchcompanies": {
+      "type": "object",
+      "properties": {
+        "companies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "created_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "industry": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "country": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "city": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "lead_status": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "lifecycle_stage": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "owner": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "year_founded": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "website_url": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "created_date",
+              "name",
+              "industry",
+              "description",
+              "country",
+              "city",
+              "lead_status",
+              "lifecycle_stage",
+              "owner",
+              "year_founded",
+              "website_url"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "companies"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_fetchcontacts": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number"
+        },
+        "properties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_fetchcontacts": {
+      "type": "object",
+      "properties": {
+        "contacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "created_date": {
+                "type": "string"
+              },
+              "first_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "last_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "job_title": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "last_contacted": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "last_activity_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "lead_status": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "lifecycle_stage": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "salutation": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "mobile_phone_number": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "website_url": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "owner": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "created_date",
+              "first_name",
+              "last_name",
+              "email",
+              "job_title",
+              "last_contacted",
+              "last_activity_date",
+              "lead_status",
+              "lifecycle_stage",
+              "salutation",
+              "mobile_phone_number",
+              "website_url",
+              "owner"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "contacts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_fetchcurrencycodes": {
+      "type": "null"
+    },
+    "ActionOutput_hubspot_fetchcurrencycodes": {
+      "type": "object",
+      "properties": {
+        "currencyCodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "code": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "code",
+              "description"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "currencyCodes"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_fetchdeals": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number"
+        },
+        "properties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "includeAssociations": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_fetchdeals": {
+      "type": "object",
+      "properties": {
+        "deals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "amount": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "close_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "deal_description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "owner": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "deal_stage": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "deal_probability": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "returned_associations": {
+                "type": "object",
+                "properties": {
+                  "companies": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "contacts": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "first_name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "last_name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "first_name",
+                        "last_name"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "deals": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "amount",
+              "close_date",
+              "deal_description",
+              "owner",
+              "deal_stage",
+              "deal_probability"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "deals"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_fetchknowledgebase": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number"
+        },
+        "term": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_fetchknowledgebase": {
+      "type": "object",
+      "properties": {
+        "knowledgeBase": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "category": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              },
+              "publishDate": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "description",
+              "category",
+              "content",
+              "publishDate"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "knowledgeBase"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_fetchowners": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_fetchowners": {
+      "type": "object",
+      "properties": {
+        "owners": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "userId": {
+                "type": "number"
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updatedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "archived": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "email",
+              "firstName",
+              "lastName",
+              "userId",
+              "createdAt",
+              "updatedAt",
+              "archived"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "owners"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_fetchproducts": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number"
+        },
+        "properties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_fetchproducts": {
+      "type": "object",
+      "properties": {
+        "products": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "updatedAt": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "amount": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "discount": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "sku": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "url": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "price": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "recurringBillingFrequency": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "tax": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            },
+            "required": [
+              "updatedAt",
+              "createdAt",
+              "id",
+              "amount",
+              "description",
+              "discount",
+              "sku",
+              "url",
+              "name",
+              "price",
+              "quantity",
+              "recurringBillingFrequency",
+              "tax"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "products"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_hubspot_fetchservicetickets": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number"
+        },
+        "properties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "modifiedSince": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionOutput_hubspot_fetchservicetickets": {
+      "type": "object",
+      "properties": {
+        "serviceTickets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updatedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "isArchived": {
+                "type": "boolean"
+              },
+              "subject": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              },
+              "objectId": {
+                "type": "number"
+              },
+              "ownerId": {
+                "type": "number"
+              },
+              "pipeline": {
+                "type": "number"
+              },
+              "pipelineStage": {
+                "type": "number"
+              },
+              "ticketCategory": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ticketPriority": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "createdAt",
+              "updatedAt",
+              "isArchived",
+              "subject",
+              "content",
+              "objectId",
+              "ownerId",
+              "pipeline",
+              "pipelineStage",
+              "ticketCategory",
+              "ticketPriority"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "serviceTickets"
+      ],
+      "additionalProperties": false
     }
   },
-  "$comment": "This file was generated by Nango (v0.68.1)"
+  "$comment": "This file was generated by Nango (v0.69.13)"
 }

@@ -547,300 +547,189 @@
           "ActionOutput_hubspot_createnote"
         ],
         "version": "1.0.0"
-      }
-    ],
-    "syncs": [
-      {
-        "type": "sync",
-        "description": "Fetches a list of service tickets from Hubspot",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/service-tickets"
-          }
-        ],
-        "input": "SyncMetadata_hubspot_servicetickets",
-        "name": "service-tickets",
-        "output": [
-          "HubspotServiceTicket"
-        ],
-        "runs": "every half hour",
-        "scopes": [],
-        "sync_type": "incremental",
-        "track_deletes": false,
-        "usedModels": [
-          "HubspotServiceTicket",
-          "SyncMetadata_hubspot_servicetickets"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
       },
       {
-        "type": "sync",
-        "description": "Fetches a list of contacts from Hubspot",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/contacts",
-            "group": "Contacts"
-          }
-        ],
-        "input": "SyncMetadata_hubspot_contacts",
-        "name": "contacts",
+        "type": "action",
+        "description": "Fetch companies from HubSpot",
+        "endpoint": {
+          "method": "GET",
+          "path": "/companies",
+          "group": "Companies"
+        },
+        "input": "ActionInput_hubspot_fetchcompanies",
+        "name": "fetch-companies",
         "output": [
-          "Contact"
+          "ActionOutput_hubspot_fetchcompanies"
         ],
-        "runs": "every day",
-        "scopes": [
-          "crm.objects.contacts.read",
-          "oauth"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "Contact",
-          "SyncMetadata_hubspot_contacts"
-        ],
-        "version": "3.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of companies from Hubspot",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/companies",
-            "group": "Companies"
-          }
-        ],
-        "input": "SyncMetadata_hubspot_companies",
-        "name": "companies",
-        "output": [
-          "Company"
-        ],
-        "runs": "every day",
         "scopes": [
           "crm.objects.companies.read",
           "oauth"
         ],
-        "sync_type": "full",
-        "track_deletes": false,
         "usedModels": [
-          "Company",
-          "SyncMetadata_hubspot_companies"
+          "ActionInput_hubspot_fetchcompanies",
+          "ActionOutput_hubspot_fetchcompanies"
         ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
+        "version": "1.0.0"
       },
       {
-        "type": "sync",
-        "description": "Fetches a list of deals from Hubspot with their associated companies and contacts",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/deals",
-            "group": "Deals"
-          }
-        ],
-        "input": "SyncMetadata_hubspot_deals",
-        "name": "deals",
+        "type": "action",
+        "description": "Fetch contacts from HubSpot",
+        "endpoint": {
+          "method": "GET",
+          "path": "/contacts",
+          "group": "Contacts"
+        },
+        "input": "ActionInput_hubspot_fetchcontacts",
+        "name": "fetch-contacts",
         "output": [
-          "Deal"
+          "ActionOutput_hubspot_fetchcontacts"
         ],
-        "runs": "every day",
-        "scopes": [
-          "crm.objects.deals.read",
-          "oauth",
-          "e-commerce (standard scope)",
-          "crm.objects.line_items.read (granular scope)"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "Deal",
-          "SyncMetadata_hubspot_deals"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of products from Hubspot",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/products",
-            "group": "Products"
-          }
-        ],
-        "input": "SyncMetadata_hubspot_products",
-        "name": "products",
-        "output": [
-          "Product"
-        ],
-        "runs": "every day",
-        "scopes": [
-          "e-commerce"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "Product",
-          "SyncMetadata_hubspot_products"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of owners from Hubspot",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/owners",
-            "group": "Owners"
-          }
-        ],
-        "input": "SyncMetadata_hubspot_owners",
-        "name": "owners",
-        "output": [
-          "HubspotOwner"
-        ],
-        "runs": "every day",
-        "scopes": [],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "HubspotOwner",
-          "SyncMetadata_hubspot_owners"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of users from Hubspot",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/users",
-            "group": "Users"
-          }
-        ],
-        "input": "SyncMetadata_hubspot_users",
-        "name": "users",
-        "output": [
-          "User"
-        ],
-        "runs": "every day",
-        "scopes": [
-          "oauth",
-          "settings.users.read (standard scope)",
-          "crm.objects.users.read (granular scope)"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "User",
-          "SyncMetadata_hubspot_users"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of knowledge base from Hubspot",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/knowledge-base"
-          }
-        ],
-        "input": "SyncMetadata_hubspot_knowledgebase",
-        "name": "knowledge-base",
-        "output": [
-          "HubspotKnowledgeBase"
-        ],
-        "runs": "every day",
-        "scopes": [],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "HubspotKnowledgeBase",
-          "SyncMetadata_hubspot_knowledgebase"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
-      },
-      {
-        "type": "sync",
-        "description": "Fetches a list of tasks from Hubspot",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/tasks",
-            "group": "Tasks"
-          }
-        ],
-        "input": "SyncMetadata_hubspot_tasks",
-        "name": "tasks",
-        "output": [
-          "Task"
-        ],
-        "runs": "every day",
         "scopes": [
           "crm.objects.contacts.read",
           "oauth"
         ],
-        "sync_type": "full",
-        "track_deletes": false,
         "usedModels": [
-          "Task",
-          "SyncMetadata_hubspot_tasks"
+          "ActionInput_hubspot_fetchcontacts",
+          "ActionOutput_hubspot_fetchcontacts"
         ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
+        "version": "1.0.0"
       },
       {
-        "type": "sync",
-        "description": "Fetch hubspot deals",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/currency-codes"
-          }
-        ],
-        "input": "SyncMetadata_hubspot_currencycodes",
-        "name": "currency-codes",
+        "type": "action",
+        "description": "Fetch currency codes from HubSpot",
+        "endpoint": {
+          "method": "GET",
+          "path": "/currency-codes",
+          "group": "Settings"
+        },
+        "input": "ActionInput_hubspot_fetchcurrencycodes",
+        "name": "fetch-currency-codes",
         "output": [
-          "CurrencyCode"
+          "ActionOutput_hubspot_fetchcurrencycodes"
         ],
-        "runs": "every day",
         "scopes": [
           "oauth",
           "settings.currencies.read"
         ],
-        "sync_type": "full",
-        "track_deletes": false,
         "usedModels": [
-          "CurrencyCode",
-          "SyncMetadata_hubspot_currencycodes"
+          "ActionInput_hubspot_fetchcurrencycodes",
+          "ActionOutput_hubspot_fetchcurrencycodes"
         ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch deals from HubSpot",
+        "endpoint": {
+          "method": "GET",
+          "path": "/deals",
+          "group": "Deals"
+        },
+        "input": "ActionInput_hubspot_fetchdeals",
+        "name": "fetch-deals",
+        "output": [
+          "ActionOutput_hubspot_fetchdeals"
+        ],
+        "scopes": [
+          "crm.objects.deals.read",
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_fetchdeals",
+          "ActionOutput_hubspot_fetchdeals"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch knowledge base articles from HubSpot",
+        "endpoint": {
+          "method": "GET",
+          "path": "/knowledge-base",
+          "group": "Knowledge Base"
+        },
+        "input": "ActionInput_hubspot_fetchknowledgebase",
+        "name": "fetch-knowledge-base",
+        "output": [
+          "ActionOutput_hubspot_fetchknowledgebase"
+        ],
+        "scopes": [
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_fetchknowledgebase",
+          "ActionOutput_hubspot_fetchknowledgebase"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch owners from HubSpot",
+        "endpoint": {
+          "method": "GET",
+          "path": "/owners",
+          "group": "Owners"
+        },
+        "input": "ActionInput_hubspot_fetchowners",
+        "name": "fetch-owners",
+        "output": [
+          "ActionOutput_hubspot_fetchowners"
+        ],
+        "scopes": [
+          "oauth"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_fetchowners",
+          "ActionOutput_hubspot_fetchowners"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch products from HubSpot",
+        "endpoint": {
+          "method": "GET",
+          "path": "/products",
+          "group": "Products"
+        },
+        "input": "ActionInput_hubspot_fetchproducts",
+        "name": "fetch-products",
+        "output": [
+          "ActionOutput_hubspot_fetchproducts"
+        ],
+        "scopes": [
+          "e-commerce"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_fetchproducts",
+          "ActionOutput_hubspot_fetchproducts"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch service tickets from HubSpot",
+        "endpoint": {
+          "method": "GET",
+          "path": "/service-tickets",
+          "group": "Service Tickets"
+        },
+        "input": "ActionInput_hubspot_fetchservicetickets",
+        "name": "fetch-service-tickets",
+        "output": [
+          "ActionOutput_hubspot_fetchservicetickets"
+        ],
+        "scopes": [
+          "tickets"
+        ],
+        "usedModels": [
+          "ActionInput_hubspot_fetchservicetickets",
+          "ActionOutput_hubspot_fetchservicetickets"
+        ],
+        "version": "1.0.0"
       }
     ],
+    "syncs": [],
     "onEventScripts": {
       "post-connection-creation": [],
       "pre-connection-deletion": [],

@@ -23,110 +23,77 @@
           "ActionOutput_slack_sendmessage"
         ],
         "version": "2.0.0"
-      }
-    ],
-    "syncs": [
-      {
-        "type": "sync",
-        "description": "Syncs information about all Users on the Slack workspace",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/users"
-          }
-        ],
-        "input": "SyncMetadata_slack_users",
-        "name": "users",
-        "output": [
-          "SlackUser"
-        ],
-        "runs": "every hour",
-        "scopes": [
-          "users:read",
-          "users:read.email"
-        ],
-        "sync_type": "full",
-        "track_deletes": false,
-        "usedModels": [
-          "SlackUser",
-          "SyncMetadata_slack_users"
-        ],
-        "version": "2.0.0",
-        "webhookSubscriptions": []
       },
       {
-        "type": "sync",
-        "description": "Syncs information about all Slack channels. Which channels get synced\n(public, private, IMs, group DMs) depends on the scopes. If\njoinPublicChannels is set to true, the bot will automatically join all\npublic channels as well. Scopes: At least one of channels:read,\ngroups:read, mpim:read, im:read. To also join public channels:\nchannels:join",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/channels"
-          }
-        ],
-        "input": "SyncMetadata_slack_channels",
-        "name": "channels",
+        "type": "action",
+        "description": "Fetch channels from Slack workspace. Supports filtering by channel types and archived status.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/channels",
+          "group": "Channels"
+        },
+        "input": "ActionInput_slack_fetchchannels",
+        "name": "fetch-channels",
         "output": [
-          "SlackChannel"
+          "ActionOutput_slack_fetchchannels"
         ],
-        "runs": "every hour",
         "scopes": [
-          "channels:read",
-          "channels:join"
+          "channels:read"
         ],
-        "sync_type": "full",
-        "track_deletes": false,
         "usedModels": [
-          "SlackChannel",
-          "SyncMetadata_slack_channels"
+          "ActionInput_slack_fetchchannels",
+          "ActionOutput_slack_fetchchannels"
         ],
-        "version": "2.0.1",
-        "webhookSubscriptions": []
+        "version": "1.0.0"
       },
       {
-        "type": "sync",
-        "description": "Syncs Slack messages, thread replies and reactions from messages &\nthread replies for all channels, group dms and dms the bot is a part\nof. For every channel it will do an initial full sync on first\ndetection of the channel. For subsequent runs it will sync messages,\nthreads & reactions from the last 10 days. Scopes required:\nchannels:read, and at least one of\nchannels:history, groups:history, mpim:history, im:history",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/messages",
-            "group": "Messages"
-          },
-          {
-            "method": "GET",
-            "path": "/messages-reply"
-          },
-          {
-            "method": "GET",
-            "path": "/messages-reaction"
-          }
-        ],
-        "input": "SyncMetadata_slack_messages",
-        "name": "messages",
+        "type": "action",
+        "description": "Fetch messages from a specific Slack channel with optional replies and reactions",
+        "endpoint": {
+          "method": "GET",
+          "path": "/messages",
+          "group": "Messages"
+        },
+        "input": "ActionInput_slack_fetchmessages",
+        "name": "fetch-messages",
         "output": [
-          "SlackMessage",
-          "SlackMessageReply",
-          "SlackMessageReaction"
+          "ActionOutput_slack_fetchmessages"
         ],
-        "runs": "every hour",
         "scopes": [
           "channels:read",
           "channels:history"
         ],
-        "sync_type": "incremental",
-        "track_deletes": false,
         "usedModels": [
-          "SlackMessage",
-          "SlackMessageReply",
-          "SlackMessageReaction",
-          "SyncMetadata_slack_messages"
+          "ActionInput_slack_fetchmessages",
+          "ActionOutput_slack_fetchmessages"
         ],
-        "version": "2.0.1",
-        "webhookSubscriptions": []
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch users from Slack workspace",
+        "endpoint": {
+          "method": "GET",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_slack_fetchusers",
+        "name": "fetch-users",
+        "output": [
+          "ActionOutput_slack_fetchusers"
+        ],
+        "scopes": [
+          "users:read",
+          "users:read.email"
+        ],
+        "usedModels": [
+          "ActionInput_slack_fetchusers",
+          "ActionOutput_slack_fetchusers"
+        ],
+        "version": "1.0.0"
       }
     ],
+    "syncs": [],
     "onEventScripts": {
       "post-connection-creation": [],
       "pre-connection-deletion": [],
