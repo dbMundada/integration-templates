@@ -1,50 +1,153 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "ActionInput_slack_sendmessage": {
+    "ActionInput_slack_fetchusers": {
       "type": "object",
       "properties": {
-        "channel": {
-          "type": "string"
+        "limit": {
+          "type": "number"
         },
-        "text": {
-          "type": "string"
+        "includeLocale": {
+          "type": "boolean"
         }
       },
-      "required": [
-        "channel",
-        "text"
-      ],
       "additionalProperties": false
     },
-    "ActionOutput_slack_sendmessage": {
+    "ActionOutput_slack_fetchusers": {
       "type": "object",
       "properties": {
-        "ok": {
-          "type": "boolean"
-        },
-        "channel": {
-          "type": "string"
-        },
-        "ts": {
-          "type": "string"
-        },
-        "message": {
-          "type": "string"
-        },
-        "warning": {
-          "type": "string"
-        },
-        "error": {
-          "type": "string"
-        },
-        "raw_json": {
-          "type": "string"
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "team_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "deleted": {
+                "type": "boolean"
+              },
+              "tz": {
+                "type": "string"
+              },
+              "tz_label": {
+                "type": "string"
+              },
+              "tz_offset": {
+                "type": "number"
+              },
+              "profile": {
+                "type": "object",
+                "properties": {
+                  "avatar_hash": {
+                    "type": "string"
+                  },
+                  "real_name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "display_name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "real_name_normalized": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "display_name_normalized": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "email": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "image_original": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "avatar_hash",
+                  "real_name",
+                  "display_name",
+                  "real_name_normalized",
+                  "display_name_normalized",
+                  "email"
+                ],
+                "additionalProperties": false
+              },
+              "is_admin": {
+                "type": "boolean"
+              },
+              "is_owner": {
+                "type": "boolean"
+              },
+              "is_primary_owner": {
+                "type": "boolean"
+              },
+              "is_restricted": {
+                "type": "boolean"
+              },
+              "is_ultra_restricted": {
+                "type": "boolean"
+              },
+              "is_bot": {
+                "type": "boolean"
+              },
+              "updated": {
+                "type": "number"
+              },
+              "is_app_user": {
+                "type": "boolean"
+              },
+              "raw_json": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "team_id",
+              "name",
+              "deleted",
+              "tz",
+              "tz_label",
+              "tz_offset",
+              "profile",
+              "is_admin",
+              "is_owner",
+              "is_primary_owner",
+              "is_restricted",
+              "is_ultra_restricted",
+              "is_bot",
+              "updated",
+              "is_app_user",
+              "raw_json"
+            ],
+            "additionalProperties": false
+          }
         }
       },
       "required": [
-        "ok",
-        "raw_json"
+        "users"
       ],
       "additionalProperties": false
     },
@@ -461,153 +564,50 @@
       ],
       "additionalProperties": false
     },
-    "ActionInput_slack_fetchusers": {
+    "ActionInput_slack_sendmessage": {
       "type": "object",
       "properties": {
-        "limit": {
-          "type": "number"
+        "channel": {
+          "type": "string"
         },
-        "includeLocale": {
-          "type": "boolean"
-        }
-      },
-      "additionalProperties": false
-    },
-    "ActionOutput_slack_fetchusers": {
-      "type": "object",
-      "properties": {
-        "users": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "team_id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "deleted": {
-                "type": "boolean"
-              },
-              "tz": {
-                "type": "string"
-              },
-              "tz_label": {
-                "type": "string"
-              },
-              "tz_offset": {
-                "type": "number"
-              },
-              "profile": {
-                "type": "object",
-                "properties": {
-                  "avatar_hash": {
-                    "type": "string"
-                  },
-                  "real_name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "display_name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "real_name_normalized": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "display_name_normalized": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "email": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "image_original": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                },
-                "required": [
-                  "avatar_hash",
-                  "real_name",
-                  "display_name",
-                  "real_name_normalized",
-                  "display_name_normalized",
-                  "email"
-                ],
-                "additionalProperties": false
-              },
-              "is_admin": {
-                "type": "boolean"
-              },
-              "is_owner": {
-                "type": "boolean"
-              },
-              "is_primary_owner": {
-                "type": "boolean"
-              },
-              "is_restricted": {
-                "type": "boolean"
-              },
-              "is_ultra_restricted": {
-                "type": "boolean"
-              },
-              "is_bot": {
-                "type": "boolean"
-              },
-              "updated": {
-                "type": "number"
-              },
-              "is_app_user": {
-                "type": "boolean"
-              },
-              "raw_json": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "id",
-              "team_id",
-              "name",
-              "deleted",
-              "tz",
-              "tz_label",
-              "tz_offset",
-              "profile",
-              "is_admin",
-              "is_owner",
-              "is_primary_owner",
-              "is_restricted",
-              "is_ultra_restricted",
-              "is_bot",
-              "updated",
-              "is_app_user",
-              "raw_json"
-            ],
-            "additionalProperties": false
-          }
+        "text": {
+          "type": "string"
         }
       },
       "required": [
-        "users"
+        "channel",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_slack_sendmessage": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "ts": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "warning": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        },
+        "raw_json": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "raw_json"
       ],
       "additionalProperties": false
     }

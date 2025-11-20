@@ -3,19 +3,35 @@
 // You can version this file
 // ---------------------------
 
-export interface ActionInput_slack_sendmessage {
-  channel: string;
-  text: string;
+export interface ActionInput_slack_fetchusers {
+  limit?: number | undefined;
+  includeLocale?: boolean | undefined;
 };
 
-export interface ActionOutput_slack_sendmessage {
-  ok: boolean;
-  channel?: string | undefined;
-  ts?: string | undefined;
-  message?: string | undefined;
-  warning?: string | undefined;
-  error?: string | undefined;
-  raw_json: string;
+export interface ActionOutput_slack_fetchusers {
+  users: ({  id: string;
+  team_id: string;
+  name: string;
+  deleted: boolean;
+  tz: string;
+  tz_label: string;
+  tz_offset: number;
+  profile: {  avatar_hash: string;
+  real_name: string | null;
+  display_name: string | null;
+  real_name_normalized: string | null;
+  display_name_normalized: string | null;
+  email: string | null;
+  image_original?: string | null | undefined;};
+  is_admin: boolean;
+  is_owner: boolean;
+  is_primary_owner: boolean;
+  is_restricted: boolean;
+  is_ultra_restricted: boolean;
+  is_bot: boolean;
+  updated: number;
+  is_app_user: boolean;
+  raw_json: string;})[];
 };
 
 export interface ActionInput_slack_fetchchannels {
@@ -93,33 +109,17 @@ export interface ActionOutput_slack_fetchmessages {
   reaction_name: string;})[] | undefined;
 };
 
-export interface ActionInput_slack_fetchusers {
-  limit?: number | undefined;
-  includeLocale?: boolean | undefined;
+export interface ActionInput_slack_sendmessage {
+  channel: string;
+  text: string;
 };
 
-export interface ActionOutput_slack_fetchusers {
-  users: ({  id: string;
-  team_id: string;
-  name: string;
-  deleted: boolean;
-  tz: string;
-  tz_label: string;
-  tz_offset: number;
-  profile: {  avatar_hash: string;
-  real_name: string | null;
-  display_name: string | null;
-  real_name_normalized: string | null;
-  display_name_normalized: string | null;
-  email: string | null;
-  image_original?: string | null | undefined;};
-  is_admin: boolean;
-  is_owner: boolean;
-  is_primary_owner: boolean;
-  is_restricted: boolean;
-  is_ultra_restricted: boolean;
-  is_bot: boolean;
-  updated: number;
-  is_app_user: boolean;
-  raw_json: string;})[];
+export interface ActionOutput_slack_sendmessage {
+  ok: boolean;
+  channel?: string | undefined;
+  ts?: string | undefined;
+  message?: string | undefined;
+  warning?: string | undefined;
+  error?: string | undefined;
+  raw_json: string;
 };

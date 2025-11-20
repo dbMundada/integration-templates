@@ -1,125 +1,99 @@
 [
   {
-    "providerConfigKey": "segment",
-    "actions": [],
-    "syncs": [
+    "providerConfigKey": "slack",
+    "actions": [
       {
-        "type": "sync",
-        "description": "Fetches all source configurations from Segment workspace",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/sources",
-            "group": "Sources"
-          }
-        ],
-        "input": "SyncMetadata_segment_sources",
-        "name": "sources",
+        "type": "action",
+        "description": "Fetch users from Slack workspace",
+        "endpoint": {
+          "method": "GET",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_slack_fetchusers",
+        "name": "fetch-users",
         "output": [
-          "SegmentSource"
+          "ActionOutput_slack_fetchusers"
         ],
-        "runs": "every day",
         "scopes": [
-          "workspace:read"
+          "users:read",
+          "users:read.email"
         ],
-        "sync_type": "full",
-        "track_deletes": false,
         "usedModels": [
-          "SegmentSource",
-          "SyncMetadata_segment_sources"
+          "ActionInput_slack_fetchusers",
+          "ActionOutput_slack_fetchusers"
         ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
+        "version": "1.0.0"
       },
       {
-        "type": "sync",
-        "description": "Fetches all destination configurations from Segment workspace",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/destinations",
-            "group": "Destinations"
-          }
-        ],
-        "input": "SyncMetadata_segment_destinations",
-        "name": "destinations",
+        "type": "action",
+        "description": "Fetch channels from Slack workspace. Supports filtering by channel types and archived status.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/channels",
+          "group": "Channels"
+        },
+        "input": "ActionInput_slack_fetchchannels",
+        "name": "fetch-channels",
         "output": [
-          "SegmentDestination"
+          "ActionOutput_slack_fetchchannels"
         ],
-        "runs": "every day",
         "scopes": [
-          "workspace:read"
+          "channels:read"
         ],
-        "sync_type": "full",
-        "track_deletes": false,
         "usedModels": [
-          "SegmentDestination",
-          "SyncMetadata_segment_destinations"
+          "ActionInput_slack_fetchchannels",
+          "ActionOutput_slack_fetchchannels"
         ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
+        "version": "1.0.0"
       },
       {
-        "type": "sync",
-        "description": "Fetches all subscriptions from enabled destinations in Segment workspace",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/subscriptions",
-            "group": "Subscriptions"
-          }
-        ],
-        "input": "SyncMetadata_segment_subscriptions",
-        "name": "subscriptions",
+        "type": "action",
+        "description": "Fetch messages from a specific Slack channel with optional replies and reactions",
+        "endpoint": {
+          "method": "GET",
+          "path": "/messages",
+          "group": "Messages"
+        },
+        "input": "ActionInput_slack_fetchmessages",
+        "name": "fetch-messages",
         "output": [
-          "SegmentSubscription"
+          "ActionOutput_slack_fetchmessages"
         ],
-        "runs": "every day",
         "scopes": [
-          "workspace:read"
+          "channels:read",
+          "channels:history"
         ],
-        "sync_type": "full",
-        "track_deletes": false,
         "usedModels": [
-          "SegmentSubscription",
-          "SyncMetadata_segment_subscriptions"
+          "ActionInput_slack_fetchmessages",
+          "ActionOutput_slack_fetchmessages"
         ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
+        "version": "1.0.0"
       },
       {
-        "type": "sync",
-        "description": "Fetches workspace information from Segment",
-        "auto_start": true,
-        "endpoints": [
-          {
-            "method": "GET",
-            "path": "/workspace",
-            "group": "Workspace"
-          }
-        ],
-        "input": "SyncMetadata_segment_workspace",
-        "name": "workspace",
+        "type": "action",
+        "description": "An action that sends a message to a slack channel.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/messages",
+          "group": "Messages"
+        },
+        "input": "ActionInput_slack_sendmessage",
+        "name": "send-message",
         "output": [
-          "SegmentWorkspace"
+          "ActionOutput_slack_sendmessage"
         ],
-        "runs": "every day",
         "scopes": [
-          "workspace:read"
+          "chat:write"
         ],
-        "sync_type": "full",
-        "track_deletes": false,
         "usedModels": [
-          "SegmentWorkspace",
-          "SyncMetadata_segment_workspace"
+          "ActionInput_slack_sendmessage",
+          "ActionOutput_slack_sendmessage"
         ],
-        "version": "1.0.0",
-        "webhookSubscriptions": []
+        "version": "2.0.0"
       }
     ],
+    "syncs": [],
     "onEventScripts": {
       "post-connection-creation": [],
       "pre-connection-deletion": [],

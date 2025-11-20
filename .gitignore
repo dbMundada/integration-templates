@@ -8,6 +8,5 @@ integrations/models.ts
 integrations/**/nango-integrations
 .vscode/
 tmp-run-integration-template
-build/
 dist/
 integrations/.nango

@@ -4,25 +4,26 @@
     "actions": [
       {
         "type": "action",
-        "description": "An action that sends a message to a slack channel.",
+        "description": "Fetch users from Slack workspace",
         "endpoint": {
-          "method": "POST",
-          "path": "/messages",
-          "group": "Messages"
+          "method": "GET",
+          "path": "/users",
+          "group": "Users"
         },
-        "input": "ActionInput_slack_sendmessage",
-        "name": "send-message",
+        "input": "ActionInput_slack_fetchusers",
+        "name": "fetch-users",
         "output": [
-          "ActionOutput_slack_sendmessage"
+          "ActionOutput_slack_fetchusers"
         ],
         "scopes": [
-          "chat:write"
+          "users:read",
+          "users:read.email"
         ],
         "usedModels": [
-          "ActionInput_slack_sendmessage",
-          "ActionOutput_slack_sendmessage"
+          "ActionInput_slack_fetchusers",
+          "ActionOutput_slack_fetchusers"
         ],
-        "version": "2.0.0"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -71,26 +72,25 @@
       },
       {
         "type": "action",
-        "description": "Fetch users from Slack workspace",
+        "description": "An action that sends a message to a slack channel.",
         "endpoint": {
-          "method": "GET",
-          "path": "/users",
-          "group": "Users"
+          "method": "POST",
+          "path": "/messages",
+          "group": "Messages"
         },
-        "input": "ActionInput_slack_fetchusers",
-        "name": "fetch-users",
+        "input": "ActionInput_slack_sendmessage",
+        "name": "send-message",
         "output": [
-          "ActionOutput_slack_fetchusers"
+          "ActionOutput_slack_sendmessage"
         ],
         "scopes": [
-          "users:read",
-          "users:read.email"
+          "chat:write"
         ],
         "usedModels": [
-          "ActionInput_slack_fetchusers",
-          "ActionOutput_slack_fetchusers"
+          "ActionInput_slack_sendmessage",
+          "ActionOutput_slack_sendmessage"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       }
     ],
     "syncs": [],
